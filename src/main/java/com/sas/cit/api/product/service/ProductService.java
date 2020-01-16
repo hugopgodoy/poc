@@ -8,11 +8,17 @@ import com.sas.cit.exception.BusinessException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ProductService {
 
     private final ProductRepository repository;
+
+    public List<Product> findAll() {
+        return repository.findAll();
+    }
 
     public ProductResponse retrieveProductById(long id) throws BusinessException {
         return repository.findById(id)
